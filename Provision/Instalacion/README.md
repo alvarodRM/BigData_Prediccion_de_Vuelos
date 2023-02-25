@@ -39,54 +39,51 @@ sudo python3 2_iniciar_kafka.py
 ```
 Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (2).
 
-* PASO 3:
+### PASO 3:
 ```
 sudo python3 3_importar_registros_distancia_MongoDB.py
 ```
 Este comando solicitará confirmación para instalar gnupg, debe seleccionar "yes". Debe esperarse a la finalización del script para pasar al paso 4.
 
-* PASO 4:
+### PASO 4:
 ```
 sudo python3 4_entrenar_modelo_PySpark.py
 ```
 Debe esperarse a la finalización del script para pasar al paso 5.
 
-PASO 5:
+### PASO 5:
 ```
 sudo python3 5_compilar_sbt.py
 ```
-    Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (3).
+Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (3).
+* Cuando se abra el interprete de sbt, escribir "compile".
+* Tras compilarse, escribir "run" en el interprete de sbt, el comando nunca finalizará, por lo que se deja ejecutando en un terminal independiente.
 
-        a) Cuando se abra el interprete de sbt, escribir "compile".
-        b) Tras compilarse, escribir "run" en el interprete de sbt, el comando nunca finalizará, por lo que se deja ejecutando en un terminal independiente.
-
-PASO 6:
+### PASO 6:
 ```
 sudo python3 6_ejecutar_predictor_vuelo_SparkSubmit.py
 ```
-    Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (4).
+Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (4).
 
-PASO 7:
+### PASO 7:
 ```
 sudo python3 7_ejecutar_prediccion_webApp.py
 ```
-    Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (5).
+Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (5).
 
-    Ahora podrá visitar http://localhost:5000 en su máquina virtual y visualizar la App de predicción de vuelos en la página "http://localhost:8084/flights/delays/predict_kafka" al existir una configuración NAT en la máquina virtual para redirigir el puerto 5000 del sistema invitado al 8084 de la máquina anfitriona, pudiendo visualizar la aplicación igualmente.
+* Ahora podrá visitar http://localhost:5000 en su máquina virtual y visualizar la App de predicción de vuelos en la página "http://localhost:8084/flights/delays/predict_kafka" al existir una configuración NAT en la máquina virtual para redirigir el puerto 5000 del sistema invitado al 8084 de la máquina anfitriona, pudiendo visualizar la aplicación igualmente.
 
-PASO 8:
+### PASO 8:
 ```
 sudo python3 8_entrenar_modelo_ApacheAirflow.py
 ```
-   Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (6).
+Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (6).
+Se deben introducir las contraseñas para los dos usuarios disponibles para usar el servicio.
 
-   Se deben introducir las contraseñas para los dos usuarios disponibles para usar el servicio.
-
-PASO 9:
+### PASO 9:
 ```
 sudo python3 9_airflow_scheduler.py
 ```
-   Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (7).
-
-   Ahora podrá visitar http://localhost:8080 en su máquina virtual y visualizar la App de predicción de vuelos en la página "http://localhost:8085/home" al existir una configuración NAT en la máquina virtual para redirigir el puerto 8080 del sistema invitado al 8085 de la máquina anfitriona, pudiendo visualizar la aplicación igualmente.
+Este comando no finaliza nunca, se debe dejar ejecutándose en un terminal independiente (7).
+* Ahora podrá visitar http://localhost:8080 en su máquina virtual y visualizar la App de predicción de vuelos en la página "http://localhost:8085/home" al existir una configuración NAT en la máquina virtual para redirigir el puerto 8080 del sistema invitado al 8085 de la máquina anfitriona, pudiendo visualizar la aplicación igualmente.
 
