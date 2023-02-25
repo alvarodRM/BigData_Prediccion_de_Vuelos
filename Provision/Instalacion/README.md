@@ -27,13 +27,13 @@ A continuación se detallará el orden adecuado y correcto para ejecutar los scr
 
 Para la realización de los siguientes pasos, es necesario abrir 7 terminales.
 
-* PASO 1:
+### PASO 1:
 ```
 sudo python3 1_iniciar_zookeeper.py
 ```
 Este comando no finaliza nunca (en él corre zookeeper), se debe dejar ejecutándose en un terminal independiente (1).
 
-* PASO 2:
+### PASO 2:
 ```
 sudo python3 2_iniciar_kafka.py
 ```
