@@ -1,8 +1,8 @@
 # Big Data: Predicción de retraso de vuelos
 
-AUTORES: 
-  * ÁLVARO DE ROJAS MARAVER
-  * LUIS ALBERTO LÓPEZ ÁLVAREZ
+Autores: 
+  * Álvaro de Rojas Maraver
+  * Luis Alberto López Álvarez
 
 
 Existen 2 ficheros README.md incluidos en los directorios del proyecto:
