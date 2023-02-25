@@ -1,0 +1,78 @@
+version: "3"
+
+services:
+  zookeeper:
+    build: .
+    container_name: zookeeper
+    image: openjdk:11-jre-slim
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    build: .
+    container_name: kafka
+    image: openjdk:11-jre-slim
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+
+  mongodb:
+    build: .
+    image: openjdk:11-jre-slim
+    ports:
+      - "27017:27017"
+
+  spark:
+    build: .
+    container_name: spark
+    image: openjdk:11-jre-slim
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8001:8001'
+      - '8998:8998'
+      - '10002:10002'
+      - '8080:8080'
+
+  spark-worker:
+    image: openjdk:11-jre-slim
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+
+  flask:
+    build: .
+    container_name: flask
+    image: openjdk:11-jre-slim
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "False"
+      APP_PORT: 5000
+      MONGODB_DATABASE: flaskdb
+      MONGODB_USERNAME: admin1
+      MONGODB_PASSWORD: admin
+      MONGODB_HOSTNAME: mongodb
+    depends_on:
+      - mongodb
+    networks:
+      - frontend
+      - backend
+
+  
