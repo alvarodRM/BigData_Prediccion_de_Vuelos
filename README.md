@@ -1,13 +1,13 @@
 # Big Data: Predicción de retraso de vuelos
 
 AUTORES: 
-  *ÁLVARO DE ROJAS MARAVER
-  *LUIS ALBERTO LÓPEZ ÁLVAREZ
+  * ÁLVARO DE ROJAS MARAVER
+  * LUIS ALBERTO LÓPEZ ÁLVAREZ
 
 
 Existen 2 ficheros README.md incluidos en los directorios del proyecto:
-* UNO DE ELLOS PARA EL DESPLIEGUE DE LA APLICACIÓN UTILIZANDO SCRIPTS DE PYTHON (SIN CONTENEDORES)
-* EL SEGUNDO DE ELLOS PARA EL DESPLIEGUE DE LA MISMA UTILIZANDO DOCKER
+* El primero de ellos para el despleigue de la aplicación utilizando scripts de python, sin contenedores docker.
+* El segundo para desplegar la aplicación utilizando contenedores docker.
 
 
 ## TRABAJO REALIZADO
